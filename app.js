@@ -1,18 +1,35 @@
 import { difficultyList } from "./data.js";
 
+const getRandomInt = () => {
+  return Math.floor(Math.random() * Math.floor(100));
+};
+
+const checkValue =(inputValue, lastTry=" ") => {
+  console.log(currentTry);
+
+  if(inputValue === myNumber){
+    statusText.innerText = "Win";
+  }else if(inputValue < myNumber) {
+    statusText.innerText =' ${lastTry} a beirt szam: ${inputValue}. kissebb, mint az en szamom';
+  }else {
+    statusText.innerText ='${lastTry} a beirt szam ${inputValue}. nagyobb';
+  }
+};
+
 
 let inputValue = 0;
 let tryNumber = 10;
+let currentTry = 1;
+
+const myNumber = getRandomInt();
 
 const checkBtn = document.querySelector(".input-container button");
 const numberInput = document.querySelector(".input-container input");
 const navigation = document.querySelector(".nav");
-const description = document.querySelector(".general-container p");
+const description = document.querySelector(".js-description");
 const startBtn = document.querySelector(".start-btn");
-
-const getRandomInt = () => {
-  return Math.floor(Math.random() * Math.floor(100));
-};
+const statusText = document.querySelector(".js-status-text");
+const inputContainer = document.querySelector(".input-container");
 
 difficultyList.forEach((elem) => {
   const btn = document.createElement("button");
@@ -21,25 +38,35 @@ difficultyList.forEach((elem) => {
   btn.addEventListener("click", function () {
     description.innerText = elem.description;
     tryNumber = elem.try;
-    startBtn.classList.add("activate-click");
+    startBtn.classList.toggle("deactivate-click");
   });
   navigation.appendChild(btn);
 });
 
 startBtn.addEventListener("click", function () {
-  const myNumber = getRandomInt();
-  checkBtn.classList.add("activate-click");
+
   startBtn.classList.add("hide");
-  console.log(myNumber);
-  for (let i = 0; i < tryNumber; i++) {
-    if (inputValue === 15) {
-      break;
-    }
-  }
+  inputContainer.classList.toggle("deactivate-click")
+  navigation.classList.toggle("deactivate-click");
+  console.log (myNumber,myNumber);
+
 });
 
 checkBtn.addEventListener("click", function () {
-  console.log("check click");
   inputValue = numberInput.value ? parseInt(numberInput.value) : 0;
-  console.log(inputValue);
+
+
+    if (currentTry < tryNumber) {
+     checkValue(inputValue);
+  } else  if (currentTry === tryNumber) {
+
+    checkValue(inputValue);
+  } else {
+    gameOver( );
+  }
+  numberInput.value = "";
+  currentTry++;
 });
+
+
+

@@ -72,17 +72,20 @@ button {
 
 .check-btn {
   background-color: #3498db;
-  pointer-events: none;
+
 }
 
 .start-btn {
   background-color: #3498db;
-  pointer-events: none;
   width: 100px;
 }
 
 .activate-click {
   pointer-events: all;
+}
+
+.deactivate-click{
+  pointer-events: none;
 }
 
 .hide {
