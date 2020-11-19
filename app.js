@@ -10,12 +10,15 @@ const checkValue =(inputValue, lastTry=" ") => {
   if(inputValue === myNumber){
     statusText.innerText = "Win";
   }else if(inputValue < myNumber) {
-    statusText.innerText =' ${lastTry} a beirt szam: ${inputValue}. kissebb, mint az en szamom';
+    statusText.innerText =`${lastTry} Your number is: ${inputValue}. which is less then my number.`;
   }else {
-    statusText.innerText ='${lastTry} a beirt szam ${inputValue}. nagyobb';
+    statusText.innerText =`${lastTry} Your number is ${inputValue}. which is greater then my number!`;
   }
 };
 
+const gameOver = () => {
+
+}
 
 let inputValue = 0;
 let tryNumber = 10;
