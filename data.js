@@ -1,19 +1,19 @@
 const difficultyList = [
   {
     name: "Easy",
-    description: "Easy game you can try 10 times!",
+    description: "My number is between 1 - 100,You can try to guess my number 10 times!",
     try: 10,
     class: "easy",
   },
   {
     name: "Medium",
-    description: "Medium game you can try 5 times!",
+    description: "My number is between 1 - 100,You can try to guess my number 5 times!",
     try: 5,
     class: "medium",
   },
   {
     name: "Hard",
-    description: "Hard game you can try 1 times!",
+    description: "My number is between 1 - 100,You can try to guess my number 1 times!",
     try: 1,
     class: "hard",
   },
